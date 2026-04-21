@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>MusicFlow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>🎵 MusicFlow</h1>
+
+    <!-- Buscar -->
+    <div>
+        <input type="text" id="searchInput" placeholder="Buscar canción...">
+        <button onclick="search()">Buscar</button>
+    </div>
+
+    <!-- Resultados -->
+    <h2>Resultados</h2>
+    <div id="results"></div>
+
+    <!-- Estado -->
+    <h2>Estado de descarga</h2>
+    <div id="status"></div>
+
+    <!-- Biblioteca -->
+    <h2>Biblioteca</h2>
+    <button onclick="loadLibrary()">Actualizar</button>
+    <div id="library"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

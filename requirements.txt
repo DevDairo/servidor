@@ -1,0 +1,19 @@
+# MusicFlow Server — dependencias del backend
+# Ejecutar desde la carpeta raíz del proyecto: musicflow_server/
+# Comando: pip install -r requirements.txt
+
+# --- Servidor web ---
+flask>=3.0.0
+flask-cors>=4.0.0          # Permite peticiones HTTP desde la app Android
+
+# --- Descarga de audio ---
+yt-dlp>=2024.1.1           # Motor de descarga desde YouTube
+
+# --- Procesamiento de audio y metadatos ---
+mutagen>=1.47.0            # Lectura y escritura de etiquetas ID3 en MP3
+
+# --- Procesamiento de imágenes (carátulas) ---
+Pillow>=10.0.0             # Conversión de miniaturas webp → jpg
+
+# --- Peticiones HTTP (fallback de carátulas) ---
+requests>=2.31.0
