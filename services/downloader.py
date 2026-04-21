@@ -65,19 +65,19 @@ def download_audio(url: str, progress_hook=None) -> dict | None:
     base_path = os.path.join(config.MUSIC_DIR, safe_name)
 
     ydl_opts = {
-        "format": f"bestaudio[abr<={config.DEFAULT_QUALITY}]/bestaudio/best",
-        "outtmpl": f"{base_path}.%(ext)s",
-        "writethumbnail": True,
-        "postprocessors": [
-            {
-                "key": "FFmpegExtractAudio",
-                "preferredcodec": "mp3",
-                "preferredquality": config.DEFAULT_QUALITY,
-            },
-            {"key": "FFmpegMetadata"},
-        ],
-        "quiet": True,
-        "progress_hooks": [progress_hook] if progress_hook else [],
+    "format": "bestaudio/best",          # Siempre el mejor audio disponible
+    "outtmpl": f"{base_path}.%(ext)s",
+    "writethumbnail": True,
+    "postprocessors": [
+        {
+            "key": "FFmpegExtractAudio",
+            "preferredcodec": "mp3",
+            "preferredquality": "0",     # VBR máxima calidad (equivale a ~320kbps)
+        },
+        {"key": "FFmpegMetadata"},
+    ],
+    "quiet": True,
+    "progress_hooks": [progress_hook] if progress_hook else [],
     }
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:

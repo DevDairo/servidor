@@ -85,14 +85,14 @@ class QueueManager:
 
         # 4. Guardar en DB
         artist = result["info_dict"].get("uploader", "Artista Desconocido")
+       
         song_id = models.save_song(
             title=result["title"],
             artist=artist,
             youtube_url=url,
             file_path=result["mp3"],
-            cover_path=cover_path or "",
+            cover_path="",   # La carátula vive incrustada en el MP3, no en disco
         )
-
         models.finish_task(task_id, song_id)
         print(f"[✓] Tarea {task_id[:8]}… completada.")
 

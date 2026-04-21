@@ -100,6 +100,11 @@ def insert_metadata(mp3_path: str, cover_path: str | None,
         if os.path.exists(webp_path):
             os.remove(webp_path)
 
+        # Limpiar el .jpg de carátula (ya incrustado en el MP3, no se necesita en disco)
+        if cover_path and os.path.exists(cover_path):
+            os.remove(cover_path)
+            print("[✓] Carátula temporal eliminada del disco.")
+
         return True
 
     except Exception as e:
